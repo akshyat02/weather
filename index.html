@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="A minimal weather web-app.">
+    <meta name="theme-color" content="#343d4b"/>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="./assets/icon-192x192.png">
+
+    <link rel="manifest" href="./manifest.json">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <title>Weather | By Akshyat</title>
+
+    <!-- Open Graph Tags -->
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Weather App | Akshyat" />
+	<meta property="og:description" content="A minimal weather app by Akshyat | @akshyat02" />
+	<meta property="og:image" content="https://akshyat02.github.io/weather/ogimage.png"/>
+	<meta property="og:url" content="https://akshyat02.github.io/weather/"/>
+	
+	<!-- Twitter Card -->
+	<meta property="twitter:card" content="summary" />
+	<meta property="twitter:title" content="Weather App | Akshyat" />
+	<meta property="twitter:description" content="A minimal weather app by Akshyat | @akshyat02" />
+	<meta property="twitter:image" content="https://akshyat02.github.io/weather/ogimage.png"/>
+	<meta property="twitter:url" content="https://akshyat02.github.io/weather/"/>
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="line-grp">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="weather-side">
+            <div class="weather-gradient"></div>
+            <div class="date-container">
+                <h2 class="date-dayname">Day</h2><span class="date-day">00 Month 0000 / 00:00</span><i
+                    class="location-icon" data-feather="map-pin"></i><span class="location">City, Region</span><br><span
+                    class="location" id="country">Country</span>
+            </div>
+            <div class="weather-container">
+                <!-- <i class="weather-icon" data-feather="sun"></i> -->
+                <img src="./weather/64x64/day/116.png" class="icon" alt="weather icon">
+                <h1 class="weather-temp">15°C</h1>
+                <h3 class="weather-desc">Clear</h3>
+            </div>
+        </div>
+        <div class="info-side">
+            <div class="location-container">
+                <input type="text" name="cityInput" id="cityInput" placeholder="Enter city name">
+                <button class="location-button"> 
+                    <i class="fa-solid fa-magnifying-glass" title="Search for a city's weather"></i>
+                </button>
+            </div>
+            <div class="today-info-container">
+                <div class="today-info">
+                    <div class="precipitation"> <span class="title">PRECIPITATION</span><span class="value"
+                            id="precip">0 %</span>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="humidity"> <span class="title">HUMIDITY</span><span class="value" id="humid">35 %</span>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="wind"> <span class="title">WIND</span><span class="value" id="wind">11.9 km/h NE</span>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="week-container">
+                <ul class="week-list">
+                    <li class="active">
+                        <img src="./weather/64x64/day/113.png" class="forecast-icon ficon0" alt="weather icon">
+                        <span class="day-name fname0">Sun</span>
+                        <span class="day-temp ftemp0">20°C</span>
+                    </li>
+                    <li>
+                        <img src="./weather/64x64/day/176.png" class="forecast-icon ficon1" alt="weather icon">
+                        <span class="day-name fname1">Mon</span>
+                        <span class="day-temp ftemp1">17°C</span>
+                    </li>
+                    <li>
+                        <img src="./weather/64x64/day/179.png" class="forecast-icon ficon2" alt="weather icon">
+                        <span class="day-name fname2">Thu</span>
+                        <span class="day-temp ftemp2">16°C</span>
+                    </li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer">
+        <span class="netinfo">
+            * YOU ARE OFFLINE, PLEASE CONNECT TO INTERNET
+        </span> &copy;
+        Made by 
+        <a href="https://akshyat02.github.io/profile-card" target="_blank">
+            Akshyat
+        </a>
+    </div>
+
+</body>
+<script src="main.js"></script>
+<script>
+if('serviceWorker' in navigator){
+    navigator
+    .serviceWorker
+    .register('./service-worker.js')
+    .then((reg)=> {console.log('Service worker registered', reg)})
+    .catch((err) => console.log('Service worker not registered', err));
+}
+</script>
+</html>
